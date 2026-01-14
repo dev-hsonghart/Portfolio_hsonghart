@@ -1,1 +1,198 @@
 /* index.html에 해당 */
+
+body {
+  width: 100vw;
+  height: 100vh;
+  padding: 80px 50px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+  background-color: var(--fure-black);
+  color: var(--gray_090);
+
+  overflow: hidden;
+}
+
+main {
+  width: 100%;
+  min-width: 780px;
+  max-width: 1024px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 첫번째 섹션 */
+
+.con-first {
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+  flex: 1;
+}
+
+.header {
+  width: 65%;
+  padding-right: 24px;
+  line-height: 150%;
+}
+
+.sub-title {
+  width: 35%;
+  line-height: 150%;
+  margin-bottom: 1.5rem;
+
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-thin);
+  color: var(--gray_060);
+}
+
+.con-first > div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.con-first > div:first-child {
+  margin-bottom: 2rem;
+}
+
+.con-first > div:last-child {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.chips {
+  display: flex;
+}
+
+.chip {
+  background-color: var(--gray_005);
+  border-radius: 999px;
+  padding: 0.5rem 0.875rem;
+  margin-right: 0.5rem;
+
+  font-size: var(--fs-xs);
+  color: var(--gray_070);
+  font-weight: var(--fw-light);
+}
+
+.chip:nth-child(1) {
+  cursor: pointer;
+}
+
+.chip:nth-child(1):hover {
+  text-decoration: underline;
+}
+
+.btn {
+  background-color: transparent;
+  color: var(--gray_050);
+  border: solid 1px var(--gray_010);
+  border-radius: 8px;
+  padding: 0.625rem;
+
+  font-size: var(--fs-xs);
+}
+
+.btn:hover {
+  background-color: var(--fure-white);
+  color: var(--gray_010);
+  cursor: pointer;
+}
+
+/* 두번째 섹션 */
+
+.con-second {
+  width: 100%;
+  flex: 1;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-self: flex-end;
+  color: var(--gray_080);
+  height: 100%;
+  background-color: var(--gray_000);
+  border-radius: 0.5rem;
+  padding: 1.25rem;
+
+  /* 모션 */
+  transition: height 0.3s ease;
+}
+
+.card:hover {
+  cursor: pointer;
+  background-color: var(--gray_005);
+  height: 110%;
+}
+
+.card-wrap {
+  height: 50%;
+}
+
+.card-subtitle {
+  margin-bottom: 0.5rem;
+  font-weight: var(--fw-regular);
+}
+
+.card-count {
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-thin);
+  color: var(--gray_050);
+}
+
+.card-img {
+  width: 100%;
+  max-width: 12.5rem;
+  aspect-ratio: 1 / 1;
+}
+
+/* 카드 내 아이콘 색상 */
+.card-img:nth-child(1) {
+  fill: var(--secondary-green);
+}
+
+/* [호버 대신 임시 사용] 카드 툴팁 */
+.card::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(5px);
+
+  background-color: var(--gray_010);
+  color: var(--gray_070);
+  padding: 6px 10px;
+  border-radius: 4px;
+  font-size: 12px;
+  white-space: nowrap;
+
+  /* 초기 상태: 숨김 */
+  opacity: 0;
+  visibility: hidden;
+
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  transition-delay: 0.3s;
+}
+
+.card:hover::after {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(-8px);
+}
